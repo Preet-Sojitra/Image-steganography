@@ -1,0 +1,40 @@
+import streamlit as st
+from utils.image_from_image import image_from_image, decodeImage
+import os
+from skimage.io import imsave, imread
+from PIL import Image
+
+st.set_page_config(
+    page_title="Image Steganography",
+    page_icon="🧊",
+)
+
+st.write("## Decrypting Image into Image")
+
+image = st.file_uploader("Enter image that u want to decrypt")
+
+if image:
+    st.write("You uploaded this image")
+    st.image(image)
+
+    if st.button("Decrypt"):
+        # Store the image in a directory
+        os.makedirs("uploaded_images", exist_ok=True)
+
+        with open(os.path.join("uploaded_images", image.name), "wb") as f:
+            f.write(image.getbuffer())
+
+        # st.write("Decrypting...")
+
+        # img = imread(f"uploaded_images/{image.name}")
+
+        # decoded_image = decodeImage(img)
+        decoded_image = image_from_image(f"uploaded_images/{image.name}")
+
+        # print(decoded_image)
+
+        # show the decoded image
+        st.write("### Decoded Image")
+
+        im = Image.fromarray(decoded_image)
+        st.image(im)
