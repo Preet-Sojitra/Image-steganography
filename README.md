@@ -12,6 +12,8 @@ Live Demo: [ Link to be added soon]
 - Extract text from image
 - Hide image in image
 - Extract image from image
+- Nested Encryption
+- UnNesting of nested encryption
 
 ## Tech Stack
 
