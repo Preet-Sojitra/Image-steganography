@@ -15,7 +15,7 @@ def encrypt_text_to_image(text, image):
     image = imread(image)
 
     # check bit size and image size
-    will_fit = check_bit_size(message_bits, image)
+    will_fit = check_bit_size(image, message_bits)
 
     if will_fit:
         # encode the message into the image
@@ -54,22 +54,22 @@ def check_bit_size(img, message_bits):
     img_max_size = h * w * c * 2
     string_size = len(message_bits)
 
-    st.write(
-        f"Message is {string_size/8000} KB and image can fit {img_max_size / 8000} KB of data"
-    )
+    # st.write(
+    #     f"Message is {string_size/8000} KB and image can fit {img_max_size / 8000} KB of data"
+    # )
 
     # print(
     #     f"Message is {string_size/8000} KB and image can fit {img_max_size / 8000} KB of data"
     # )
 
     if string_size > img_max_size:
-        st.warning(
+        st.error(
             "Message is too big to be encoded in image. Try another image or message"
         )
         # print("Message is too big to be encoded in image")
         return False
     else:
-        st.write("Image can be encoded with message. Proceed")
+        # st.write("Image can be encoded with message. Proceed")
         # print("Image can be encoded with message. Proceed")
         return True
 

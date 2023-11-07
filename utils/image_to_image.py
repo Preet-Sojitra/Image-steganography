@@ -52,7 +52,7 @@ def messageToBits(message):
     # tag message (and paw w/ spaces till 20 characters)
     tag = "{:<20}".format("text," + str(len(message) * 8))
     message = tag + message
-    print("Tag", tag)
+    # print("Tag", tag)
 
     # convert to bits
     code = bitarray.bitarray()
@@ -62,13 +62,14 @@ def messageToBits(message):
 
 
 def encodeImage(img, message):
-    # if type(message) == str:
-    #     code = messageToBits(message)
-    # else:
-    #     print("Image")
-    #     code = imageToBits(message)
+    # print(message)
+    if type(message) == str:
+        code = messageToBits(message)
+    else:
+        # print("Image")
+        code = imageToBits(message)
 
-    code = imageToBits(message)
+    # code = imageToBits(message)
 
     # print(img_dest.shape)
 
