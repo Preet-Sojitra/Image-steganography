@@ -58,6 +58,10 @@ streamlit run Intro.py
 
 5. The project will be running on your local server. You can access it by clicking on the link provided in the terminal.
 
+## Acknowledgements
+
+Code for image steganography is taken from [here](https://www.kaggle.com/code/valkling/steganography-hiding-star-wars-scripts-in-images/notebook). I have developed the UI for the project using streamlit.
+
 ## Contributing
 
 Contributions are always welcome!

@@ -42,6 +42,6 @@ if text:
                 os.makedirs("encrypted_images", exist_ok=True)
 
                 imsave(
-                    os.path.join("encrypted_images", f"encrypted_{image.name}"),
+                    f"encrypted_images/encrypted_{image.name.split('.')[0]}.png",
                     encrypted_image,
                 )
